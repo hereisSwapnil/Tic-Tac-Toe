@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;}
+
+nav ul{
+    list-style: none;
+}
+
+nav{
+    background-color: black;
+    color: white;
+    height: 60px;
+    font-size: 27px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font-family: 'Mochiy Pop One', sans-serif;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(3,10vw);
+    grid-template-rows: repeat(3,10vw);
+}
+
+.box{
+    border: 2px solid black;
+    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box:hover{
+    background-color: rgb(248, 244, 253);
+    cursor: pointer;
+}
+
+.gamecontainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.gameinfo{
+    margin: 34px;
+    font-family: 'Baloo Bhaina 2', cursive;
+}
+
+.image{
+    width: 0px;
+    transition: width 1s ease-in-out;
+}
+
+.bt-0{
+    border-top: 0;
+}
+.bb-0{
+    border-bottom: 0;
+}
+.br-0{
+    border-right: 0;
+}
+.bl-0{
+    border-left: 0;
+}
+
+#reset{
+    color: blueviolet;
+    margin-left: 10px;
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border: 2px solid #ab64ab;
+    border-radius: 7px;
+    font-size: 20px;
+}
+
+.turninfo{
+    font-size: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .gamecontainer{
+        flex-wrap: wrap;
+    }
+    .gameinfo{
+        margin-top: 20px;
+        font-size: 12px;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3,20vw);
+        grid-template-rows: repeat(3,20vw);
+    }
+}
