@@ -47,7 +47,7 @@ const checkWin = () => {
         }
     })
 }
-music.play()
+
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element =>{
     let boxtext = element.querySelector(".boxtext")
@@ -77,4 +77,17 @@ reset.addEventListener('click', ()=>{
     gameover=0;
     document.getElementsByClassName("turninfo")[0].innerHTML = "Turn for " + turn;
     document.getElementsByClassName("image")[0].style.width = "0px";
+})
+
+document.getElementById("volume").addEventListener("click" , () => {
+    if(document.getElementById("volume").className === "fas fa-volume-mute"){
+        document.getElementById("volume").className = "fas fa-volume-up";
+        music.play();
+    }
+    else{
+        document.getElementById("volume").className = "fas fa-volume-mute";
+        music.pause();
+        music.currentTime = 0;
+    }
+    
 })

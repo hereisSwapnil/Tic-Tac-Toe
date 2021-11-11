@@ -1,12 +1,14 @@
 *{
     margin: 0;
-    padding: 0;}
-
-nav ul{
-    list-style: none;
+    padding: 0;
 }
 
-nav{
+.onoff{
+    margin-left: 40px ;
+}
+
+.navbar{
+    flex-wrap: wrap;
     background-color: black;
     color: white;
     height: 60px;
@@ -93,5 +95,11 @@ nav{
         display: grid;
         grid-template-columns: repeat(3,20vw);
         grid-template-rows: repeat(3,20vw);
+    }
+    .navbar{
+        height: 120px;
+    }
+    .onoff{
+        margin-left: 10px ;
     }
 }
