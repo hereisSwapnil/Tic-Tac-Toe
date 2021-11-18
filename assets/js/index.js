@@ -19,6 +19,13 @@ const checkFill = ()=>{
             }
         })
         if((check===0) && (gameover===0)){
+            document.getElementsByClassName("container")[0].style.backgroundColor = "white";
+            document.getElementsByClassName("container")[0].style.opacity = "0.2";
+            document.getElementsByClassName("retrydiv")[0].style.display = "flex";
+            let box = document.getElementsByClassName("box");
+            Array.from(box).forEach(e=>{
+                e.style.color = "white";
+            })
             audioGameover.play();
         }
 }
@@ -50,18 +57,18 @@ const checkWin = () => {
 
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element =>{
-    let boxtext = element.querySelector(".boxtext")
-    element.addEventListener("click",()=>{
-        if(boxtext.innerHTML===""){
-            boxtext.innerHTML = turn;
-            turn = changeTurn();
-            checkWin();
-            if(gameover !== 1){
-                document.getElementsByClassName("turninfo")[0].innerHTML = "Turn for " + turn;
+        let boxtext = element.querySelector(".boxtext")
+        element.addEventListener("click",()=>{
+            if(boxtext.innerHTML===""){
+                boxtext.innerHTML = turn;
+                turn = changeTurn();
+                checkWin();
+                if(gameover !== 1){
+                    document.getElementsByClassName("turninfo")[0].innerHTML = "Turn for " + turn;
+                }
+                checkFill();
             }
-            checkFill();
-        }
-    })
+        })
 })
 
 reset.addEventListener('click', ()=>{
@@ -77,6 +84,13 @@ reset.addEventListener('click', ()=>{
     gameover=0;
     document.getElementsByClassName("turninfo")[0].innerHTML = "Turn for " + turn;
     document.getElementsByClassName("image")[0].style.width = "0px";
+    document.getElementsByClassName("container")[0].style.backgroundColor = "transparent";
+    document.getElementsByClassName("container")[0].style.opacity = "1";
+    document.getElementsByClassName("retrydiv")[0].style.display = "none";
+    let box = document.getElementsByClassName("box");
+    Array.from(box).forEach(e=>{
+        e.style.color = "black";
+    })
 })
 
 document.getElementById("volume").addEventListener("click" , () => {
@@ -90,4 +104,26 @@ document.getElementById("volume").addEventListener("click" , () => {
         music.currentTime = 0;
     }
     
+})
+
+document.getElementsByClassName("retrydiv")[0].addEventListener("click" , ()=>{
+    let boxtexts = document.querySelectorAll(".boxtext");
+    let boxes = document.getElementsByClassName("box");
+    Array.from(boxtexts).forEach(e=>{
+        e.innerHTML = "";
+    })
+    Array.from(boxes).forEach(e=>{
+        e.style.backgroundColor = "white";
+    })
+    turn = "X";
+    gameover=0;
+    document.getElementsByClassName("turninfo")[0].innerHTML = "Turn for " + turn;
+    document.getElementsByClassName("image")[0].style.width = "0px";
+    document.getElementsByClassName("container")[0].style.backgroundColor = "transparent";
+    document.getElementsByClassName("container")[0].style.opacity = "1";
+    document.getElementsByClassName("retrydiv")[0].style.display = "none";
+    let box = document.getElementsByClassName("box");
+    Array.from(box).forEach(e=>{
+        e.style.color = "black";
+    })
 })

@@ -20,10 +20,29 @@
 }
 
 .container{
+    z-index: 0;
+    position: relative;
+    background-color: white;
     display: grid;
     grid-template-columns: repeat(3,10vw);
     grid-template-rows: repeat(3,10vw);
 }
+
+.retrydiv{
+    z-index: 1;
+    cursor: pointer;
+    display: none;
+    flex-direction: row;
+    position: absolute;
+    top: 14vw;
+    right: 11vw;
+    font-size: 2vw;
+}
+
+.retrydiv i{
+    margin-right: 10px;
+}
+
 
 .box{
     border: 2px solid black;
@@ -101,5 +120,18 @@
     }
     .onoff{
         margin-left: 10px ;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .retrydiv{
+        z-index: 1;
+        position: absolute;
+        top: 27vw;
+        right: 22vw;
+        font-size: 4vw;
+        cursor: pointer;
+        display: none;
+        flex-direction: row;
     }
 }
