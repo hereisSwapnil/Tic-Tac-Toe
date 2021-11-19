@@ -3,6 +3,7 @@ let play = new Audio("assets/sounds/ting.mp3")
 let audioGameover = new Audio("assets/sounds/gameover.mp3")
 let turn = "X"
 let gameover = 0;
+let win = 0;
 
 const changeTurn = () => {
     play.play();
@@ -51,6 +52,7 @@ const checkWin = () => {
             boxes[e[1]].style.backgroundColor = "yellow";
             boxes[e[2]].style.backgroundColor = "yellow";
             document.getElementsByClassName("image")[0].style.width = "250px";
+            win = 1;
         }
     })
 }
@@ -59,7 +61,7 @@ let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach(element =>{
         let boxtext = element.querySelector(".boxtext")
         element.addEventListener("click",()=>{
-            if(boxtext.innerHTML===""){
+            if(boxtext.innerHTML==="" && win != 1){
                 boxtext.innerHTML = turn;
                 turn = changeTurn();
                 checkWin();
@@ -87,6 +89,7 @@ reset.addEventListener('click', ()=>{
     document.getElementsByClassName("container")[0].style.backgroundColor = "transparent";
     document.getElementsByClassName("container")[0].style.opacity = "1";
     document.getElementsByClassName("retrydiv")[0].style.display = "none";
+    win = 0;
     let box = document.getElementsByClassName("box");
     Array.from(box).forEach(e=>{
         e.style.color = "black";
