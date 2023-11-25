@@ -22,6 +22,4 @@ https://swapnil-singh-99.github.io/Tic-Tac-Toe/
     
 ## Screenshots
 
-<p>
-    <img src="https://postimg.cc/9DdVSNnD"/>
-</p>
+<img src="https://i.postimg.cc/RZ8FWk1L/image.png"/>
